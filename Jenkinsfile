@@ -80,7 +80,7 @@ podTemplate(label: label, containers: [
           "Build Docker": {
             container("builder") {
               try {
-                sh "\$(aws ecr get-login --no-include-email --region us-east-1)"
+                sh "\$(aws ecr get-login --no-include-email --region eu-central-1)"
                 builder.build_image()
               } catch (e) {
                 // builder.failure(SLACK_TOKEN_DEV, "Build Docker")
