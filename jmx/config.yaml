@@ -1,0 +1,14 @@
+# https://github.com/prometheus/jmx_exporter
+---
+# startDelaySeconds: 0
+# hostPort: 127.0.0.1:8080
+username:
+password:
+# jmxUrl: service:jmx:rmi:///jndi/rmi://127.0.0.1:8080/jmxrmi
+ssl: false
+lowercaseOutputName: true
+lowercaseOutputLabelNames: true
+# whitelistObjectNames: ["org.apache.cassandra.metrics:*"]
+# blacklistObjectNames: ["org.apache.cassandra.metrics:type=ColumnFamily,*"]
+rules:
+  - pattern: ".*"
