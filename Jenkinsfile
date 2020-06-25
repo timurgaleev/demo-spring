@@ -3,8 +3,8 @@ def SERVICE_NAME = "spring"
 def IMAGE_NAME = "${SERVICE_GROUP}-${SERVICE_NAME}"
 def REPOSITORY_URL = "https://github.com/timurgaleev/sample-spring"
 def REPOSITORY_SECRET = ""
-// def SLACK_TOKEN_DEV = ""
-// def SLACK_TOKEN_DQA = ""
+def SLACK_TOKEN_DEV = ""
+def SLACK_TOKEN_DQA = ""
 
 def label = "worker-${UUID.randomUUID().toString()}"
 

@@ -117,4 +117,4 @@ configmap:
 secret:
   enabled: false
   data: {}
-    # SECRET: "c2VjcmV0IHdvcmxkCg=="
+    SECRET: "c2VjcmV0IHdvcmxkCg=="
