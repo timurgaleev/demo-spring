@@ -59,6 +59,21 @@ spec:
               value: {{ .Values.namespace }}
             - name: VERSION
               value: {{ .Values.image.tag }}
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rdssecrets
+                  key: postgres_password
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: rdssecrets
+                  key: postgres_user
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: rdssecrets
+                  key: postgres_url
         {{- with .Values.env }}
           {{ toYaml . | indent 12 }}
         {{- end }}
