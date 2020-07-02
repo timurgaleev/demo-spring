@@ -6,7 +6,8 @@
 
     <groupId>com.example</groupId>
     <artifactId>aksisapp</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${this.version}</version>
+    <packaging>jar</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -44,6 +45,11 @@
     </dependencies>
     <properties>
         <java.version>1.8</java.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <this.version>v0.3.0</this.version>
     </properties>
 
 
@@ -55,4 +61,16 @@
             </plugin>
         </plugins>
     </build>
+    
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>https://archiva.demo.spic.me/repository/internal</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>https://archiva.demo.spic.me/repository/snapshots</url>
+            <uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
