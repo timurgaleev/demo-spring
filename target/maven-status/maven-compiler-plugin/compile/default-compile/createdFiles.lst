@@ -1,0 +1,4 @@
+com/example/aksisapp/GreetingController.class
+com/example/aksisapp/domain/Message.class
+com/example/aksisapp/repos/MessageRepo.class
+com/example/aksisapp/Application.class
