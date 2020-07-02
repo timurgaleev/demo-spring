@@ -6,13 +6,12 @@
 
     <groupId>com.example</groupId>
     <artifactId>aksisapp</artifactId>
-    <version>${this.version}</version>
-    <packaging>jar</packaging>
+    <version>0.4.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.1.RELEASE</version>
+        <version>2.0.5.RELEASE</version>
     </parent>
 
     <dependencies>
