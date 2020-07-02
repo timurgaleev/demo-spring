@@ -9,10 +9,21 @@
     <version>0.4.0</version>
     <packaging>jar</packaging>
 
+    <properties>
+        <java.version>1.8</java.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <this.version>v0.3.0</this.version>
+    </properties>
+
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.1.RELEASE</version>
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
     <dependencies>
@@ -43,14 +54,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <properties>
-        <java.version>1.8</java.version>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <this.version>v0.3.0</this.version>
-    </properties>
 
 
     <build>
