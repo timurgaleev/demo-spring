@@ -4,7 +4,7 @@ CMD=$1
 
 RUNNER=
 
-USERNAME="tgaleev"
+USERNAME="admin"
 REPONAME="$(basename ${PWD})"
 
 REGISTRY="${REPONAME}"
