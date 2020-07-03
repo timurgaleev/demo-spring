@@ -115,6 +115,6 @@ configmap:
     JAVA_AGENT_ENABLED: "true"
 
 secret:
-  enabled: true
+  enabled: false
   data: {}
     # SECRET: "c2VjcmV0IHdvcmxkCg=="
