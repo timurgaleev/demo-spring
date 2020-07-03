@@ -63,17 +63,17 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: rdssecrets
-                  key: postgres_password
+                  key: mysql_password
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: rdssecrets
-                  key: postgres_user
+                  key: mysql_user
             - name: SPRING_DATASOURCE_URL
               valueFrom:
                 secretKeyRef:
                   name: rdssecrets
-                  key: postgres_url
+                  key: mysql_url
         {{- with .Values.env }}
           {{ toYaml . | indent 12 }}
         {{- end }}
