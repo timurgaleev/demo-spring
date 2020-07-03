@@ -1,4 +1,4 @@
-package com.example.aksisapp;
+package com.example.tgaleev;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

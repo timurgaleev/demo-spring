@@ -1,4 +1,4 @@
-package com.example.aksisapp.domain;
+package com.example.tgaleev.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

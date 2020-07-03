@@ -1,4 +1,4 @@
-package com.example.aksisapp;
+package com.example.tgaleev;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
