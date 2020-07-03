@@ -7,11 +7,13 @@
     <groupId>com.example</groupId>
     <artifactId>tgaleev</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.5.RELEASE</version>
+        <relativePath />   
     </parent>
 
     <dependencies>
