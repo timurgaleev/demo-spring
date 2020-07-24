@@ -9,16 +9,6 @@ REPONAME="$(basename ${PWD})"
 
 REGISTRY="${REPONAME}"
 
-if [ "${CIRCLE_PROJECT_USERNAME}" != "" ]; then
-    # circle-ci
-    RUNNER="circle-ci"
-
-    USERNAME=${CIRCLE_PROJECT_USERNAME:-$USERNAME}
-    REPONAME=${CIRCLE_PROJECT_REPONAME:-$REPONAME}
-
-    REGISTRY="${USERNAME}/${REPONAME}"
-fi
-
 if [ "${GITLAB_USER_ID}" != "" ]; then
     # gitlab
     RUNNER="gitlab"
