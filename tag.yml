@@ -1,0 +1,47 @@
+name: Build-Tag
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: "1.8"
+          java-package: jdk
+          architecture: x64
+
+      - name: Run Build
+        run: |
+          ./build.sh
+
+      - name: Docker Build & Push to DockerHub
+        uses: timzu/act-docker@master
+        with:
+          args: --docker
+        env:
+          USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          TAG_NAME: ${{ github.ref }}
+          LATEST: "true"
+
+      - name: Docker Build & Push to GitHub Package
+        uses: timzu/act-docker@master
+        with:
+          args: --docker
+        env:
+          USERNAME: ${{ secrets.GITHUB_USERNAME }}
+          PASSWORD: ${{ secrets.GH_PERSONAL_TOKEN }}
+          REGISTRY: "docker.pkg.github.com"
+          TAG_NAME: ${{ github.ref }}
