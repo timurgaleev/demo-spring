@@ -27,7 +27,7 @@ jobs:
           ./build.sh
 
       - name: Docker Build & Push to DockerHub
-        uses: timzu/act-docker@master
+        uses: timzu/act-build@master
         with:
           args: --docker
         env:
@@ -37,7 +37,7 @@ jobs:
           LATEST: "true"
 
       - name: Docker Build & Push to GitHub Package
-        uses: timzu/act-docker@master
+        uses: timzu/act-build@master
         with:
           args: --docker
         env:
