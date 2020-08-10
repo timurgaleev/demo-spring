@@ -2,7 +2,7 @@
 
 [![GitHub release](https://img.shields.io/github/release/timurgaleev/sample-spring.svg)](https://github.com/timurgaleev/sample-spring/releases)
 
-[![DockerHub Badge](http://dockeri.co/image/timurgaleev/sample-spring)](https://hub.docker.com/r/timurgaleev/sample-spring/)
+[![DockerHub Badge](http://dockeri.co/image/timurgaleev/sample-spring)](https://hub.docker.com/r/timurgaleev/sample-spring)
 
 ## Docker
 
