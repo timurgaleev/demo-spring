@@ -1,9 +1,99 @@
 version: 2.1
 
-orbs:
-  maven: circleci/maven@0.0.12
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk
+    working_directory: ~/works
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - circleci-cache-{{ checksum "pom.xml" }}
+      - run:
+          name: Build
+          command: |
+            mkdir target
+            curl -sLo target/builder.sh timurgaleev.github.io/prepenv/builder
+            bash ./target/builder.sh
+            bash ./build.sh
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: circleci-cache-{{ checksum "pom.xml" }}
+      - store_artifacts:
+          path: ./target
+      - store_test_results:
+          path: ./target/surefire-reports
+      - persist_to_workspace:
+          root: ~/works
+          paths:
+            - .
+  publish:
+    docker:
+      - image: timzu/awscli
+    working_directory: ~/works
+    steps:
+      - attach_workspace:
+          at: ~/works
+      - run:
+          name: Publish
+          command: |
+            bash ./target/builder.sh
+  release:
+    docker:
+      - image: circleci/golang
+    working_directory: ~/works
+    steps:
+      - attach_workspace:
+          at: ~/works
+      - run:
+          name: Release
+          command: |
+            bash ./target/builder.sh
+  docker:
+    docker:
+      - image: circleci/python
+    working_directory: ~/works
+    steps:
+      - attach_workspace:
+          at: ~/works
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Docker
+          command: |
+            bash ./target/builder.sh
+  trigger:
+    docker:
+      - image: circleci/python
+    working_directory: ~/works
+    steps:
+      - attach_workspace:
+          at: ~/works
+      - run:
+          name: Trigger
+          command: |
+            bash ./target/builder.sh
 
 workflows:
-  maven_test:
+  version: 2
+  apply:
     jobs:
-      - maven/test # checkout, build, test, and upload test results
+      - build
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+      - release:
+          requires:
+            - build
+      - docker:
+          requires:
+            - release
+      - trigger:
+          requires:
+            - release
