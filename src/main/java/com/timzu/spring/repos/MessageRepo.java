@@ -1,6 +1,6 @@
-package com.example.tgaleev.repos;
+package com.timzu.simple.repos;
 
-import com.example.tgaleev.domain.Message;
+import com.timzu.simple.domain.Message;
 import org.springframework.data.repository.CrudRepository;
 
 public interface MessageRepo extends CrudRepository<Message, Long> {

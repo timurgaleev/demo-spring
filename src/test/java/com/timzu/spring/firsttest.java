@@ -1,4 +1,4 @@
-package com.example.tgaleev;
+package com.timzu.simple;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

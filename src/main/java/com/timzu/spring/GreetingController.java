@@ -1,7 +1,7 @@
-package com.example.tgaleev;
+package com.timzu.simple;
 
-import com.example.tgaleev.domain.Message;
-import com.example.tgaleev.repos.MessageRepo;
+import com.timzu.simple.domain.Message;
+import com.timzu.simple.repos.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
