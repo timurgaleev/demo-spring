@@ -203,6 +203,14 @@ _build() {
     fi
 }
 
+_bump() {
+    date > BUMP
+
+    mkdir build
+
+    echo "bump" > build/commit_message.txt
+}
+
 _run() {
     case ${CMD} in
         clean)
@@ -225,6 +233,9 @@ _run() {
             chart_build
             chart_push
             ;;
+        bump)
+            _bump
+            ;;  
         *)
             _build
     esac
