@@ -1,9 +1,9 @@
-# Default values for sample.
+# Default values for demo.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-nameOverride: "sample-spring"
-fullnameOverride: "sample-spring"
+nameOverride: "demo-spring"
+fullnameOverride: "demo-spring"
 
 namespace: ""
 
@@ -54,13 +54,13 @@ ingress:
   subdomain: ""
   basedomain: ""
   hosts: []
-    # - host: sample-spring.localhost
+    # - host: demo-spring.localhost
     #   paths:
     #     - /
   tls: []
-  #  - secretName: sample-spring-tls
+  #  - secretName: demo-spring-tls
   #    hosts:
-  #      - sample-spring.localhost
+  #      - demo-spring.localhost
 
 livenessProbe:
   httpGet:

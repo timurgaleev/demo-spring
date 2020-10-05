@@ -11,6 +11,7 @@ services:
       - "5432:5432"
     volumes:
       - ./target/postgres/data:/var/lib/postgresql/data
+
   pgadmin:
     image: dpage/pgadmin4
     container_name: pg_admin
@@ -21,8 +22,11 @@ services:
       - "5555:80"
     volumes:
       - ./target/pgadmin/data:/var/lib/pgadmin
-  app:
-    container_name: demo-app
+    links:
+      - postgres
+      
+  demo-spring:
+    container_name: demo-spring
     depends_on:
       - postgres
     build: 
@@ -32,3 +36,9 @@ services:
     ports:
       - 8080:8080
     restart: always
+    environment:
+      - DATABASE_ADDRESS=postgres
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=postgres
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgres

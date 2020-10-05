@@ -3,15 +3,16 @@ server:
 
 spring:
   application:
-    name: sample-spring
+    name: demo-spring
   profiles:
     active: ${PROFILE:default}
   mvc:
     static-path-pattern: /static/**
   jpa:
     hibernate:
-      ddl-auto: update
-      dialect: org.hibernate.dialect.MySQLDialect
+      ddl-auto: create
+      # dialect: org.hibernate.dialect.MySQLDialect
+      dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     url: jdbc:postgresql://${DATABASE_ADDRESS:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:postgres}
     username: ${DATABASE_USERNAME:postgres}
