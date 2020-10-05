@@ -1,0 +1,44 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres:11.5
+    container_name: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres 
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./target/postgres/data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pg_admin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=timur_galeev@outlook.com
+      - PGADMIN_DEFAULT_PASSWORD=postgres
+    ports:
+      - "5555:80"
+    volumes:
+      - ./target/pgadmin/data:/var/lib/pgadmin
+    links:
+      - postgres
+      
+  demo-spring:
+    container_name: demo-spring
+    depends_on:
+      - postgres
+    build: 
+      context: .
+    links:
+      - postgres
+    ports:
+      - 8080:8080
+    restart: always
+    environment:
+      - DATABASE_ADDRESS=postgres
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=postgres
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgres

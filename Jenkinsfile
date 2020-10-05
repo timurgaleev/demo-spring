@@ -1,7 +1,7 @@
-def SERVICE_GROUP = "sample"
+def SERVICE_GROUP = "demo"
 def SERVICE_NAME = "spring"
 def IMAGE_NAME = "${SERVICE_GROUP}-${SERVICE_NAME}"
-def REPOSITORY_URL = "https://github.com/timurgaleev/sample-spring"
+def REPOSITORY_URL = "https://github.com/timurgaleev/demo-spring"
 def REPOSITORY_SECRET = ""
 def SLACK_TOKEN_DEV = ""
 def SLACK_TOKEN_DQA = ""
@@ -104,7 +104,7 @@ podTemplate(label: label, containers: [
         container("builder") {
           try {
             // deploy(cluster, namespace, sub_domain, profile, values_path)
-            builder.deploy("local", "${SERVICE_GROUP}", "${IMAGE_NAME}-sample", "dev")
+            builder.deploy("local", "${SERVICE_GROUP}", "${IMAGE_NAME}-demo", "dev")
             // builder.success(SLACK_TOKEN_DEV, "Deploy LOCAL")
           } catch (e) {
             // builder.failure(SLACK_TOKEN_DEV, "Deploy LOCAL")

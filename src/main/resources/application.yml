@@ -1,0 +1,57 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: demo-spring
+  profiles:
+    active: ${PROFILE:default}
+  mvc:
+    static-path-pattern: /static/**
+  jpa:
+    hibernate:
+      ddl-auto: create
+      # dialect: org.hibernate.dialect.MySQLDialect
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://${DATABASE_ADDRESS:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:postgres}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 10
+
+message: ${MESSAGE:Refreshed}
+
+version: ${VERSION:v0.0.0}
+
+---
+spring:
+  profiles: default
+  jpa:
+    show-sql: true
+
+message: ":tada: Local Server UP"
+
+---
+spring:
+  profiles: dev
+  jpa:
+    show-sql: true
+
+message: ":tada: Development Server UP"
+
+---
+spring:
+  profiles: stage
+
+message: ":tada: Staging Server UP"
+
+---
+spring:
+  profiles: prod
+
+message: ":tada: Production Server UP"
