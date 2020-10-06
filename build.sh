@@ -204,11 +204,11 @@ _build() {
 }
 
 _bump() {
-    date > BUMP
+    date > DATE
 
     mkdir build
 
-    echo "bump" > build/commit_message.txt
+    echo "bump new version" > build/commit_message.txt
 }
 
 _run() {
