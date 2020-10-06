@@ -15,6 +15,7 @@ jobs:
       - name: Bump
         run: |
           bash ./build.sh bump
+          
       - name: Commit & Push
         uses: timzu/act-build@master
         with:
