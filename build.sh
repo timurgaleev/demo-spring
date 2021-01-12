@@ -91,8 +91,8 @@ mvn_build() {
         _command "mvn package"
         mvn package
     else
-        _command "mvn package -Dthis.version=${VERSION}"
-        mvn package -Dthis.version=${VERSION}
+        _command "mvn package -Dcurrent.version=${VERSION}"
+        mvn package -Dcurrent.version=${VERSION}
     fi
 
     # jmx
