@@ -1,4 +1,4 @@
-package com.timzu.simple.domain;
+package com.timzu.spring.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

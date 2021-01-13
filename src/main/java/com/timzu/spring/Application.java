@@ -1,4 +1,4 @@
-package com.timzu.simple;
+package com.timzu.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

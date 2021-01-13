@@ -1,7 +1,10 @@
-package com.timzu.simple;
+package com.timzu.spring;
 
-import com.timzu.simple.domain.Message;
-import com.timzu.simple.repos.MessageRepo;
+import com.timzu.spring.domain.Message;
+import com.timzu.spring.repos.MessageRepo;
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +15,10 @@ import java.util.Map;
 
 @Controller
 public class GreetingController {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    private final int ROW_PER_PAGE = 5;
 
     @Autowired
     private MessageRepo messageRepo;
