@@ -24,6 +24,8 @@ spring:
       max-lifetime: 1800000
       maximum-pool-size: 10
 
+msg.title=Spring Boot + Mustache
+
 message: ${MESSAGE:Refreshed}
 
 version: ${VERSION:v0.0.0}

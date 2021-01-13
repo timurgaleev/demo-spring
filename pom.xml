@@ -35,6 +35,17 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
         <!-- mustache -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -83,6 +94,56 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <inherited>false</inherited>
+                <groupId>com.google.code.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <header>NOTICE</header>
+                    <failIfMissing>true</failIfMissing>
+                    <aggregate>true</aggregate>
+                    <properties>
+                        <owner>Timzu</owner>
+                        <email>galeev@timzu.com</email>
+                    </properties>
+                    <excludes>
+                        <exclude>mvnw.cmd</exclude>
+                        <exclude>.mvn/**</exclude>
+                        <exclude>.hg/**</exclude>
+                        <exclude>.git/**</exclude>
+                        <exclude>.gitignore/**</exclude>
+                        <exclude>jenkins-jobs-configuration/**</exclude>
+                        <exclude>LICENSE</exclude>
+                        <exclude>NOTICE</exclude>
+                        <exclude>README.md</exclude>
+                        <exclude>**/Servers/**</exclude>
+                        <exclude>**/src/test/resources/**</exclude>
+                        <exclude>**/src/test/data/**</exclude>
+                        <exclude>.git/**</exclude>
+                        <exclude>**/.metadata/**</exclude>
+                        <exclude>**/.idea/**</exclude>
+                        <exclude>**/logs/**</exclude>
+                        <exclude>**/js/**</exclude>
+                        <exclude>**/css/**</exclude>
+                        <exclude>**/src/main/resources/**</exclude>
+                        <exclude>**/src/sql/**</exclude>
+                        <exclude>**/nb-configuration.xml</exclude>
+                        <exclude>**/nbactions.xml</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-headers</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <!--<goal>check</goal>-->
+                            <goal>format</goal>
+                            <!--<goal>remove</goal>-->
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

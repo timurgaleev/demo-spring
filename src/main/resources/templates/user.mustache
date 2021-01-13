@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>User Details</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    </head>
+    <body>
+        <h1>View User</h1>
+        <a href="/users">Back to User List</a>
+        <br/><br/>
+        {{#user}}
+            <table border="0">
+                <tr>
+                    <td>ID</td>
+                    <td>:</td>
+                    <td>{{id}}</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>{{name}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>{{email}}</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>:</td>
+                    <td>{{#phone}}{{phone}}{{/phone}}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>:</td>
+                    <td>{{#address}}{{address}}{{/address}}</td>
+                </tr>
+            </table>
+            <br/><br/>
+            {{#allowDelete}}
+                <form action="/users/{{id}}/delete" method="POST">
+                    Delete this user? <input type="submit" value="Yes" />
+                </form>
+            {{/allowDelete}}
+            {{^allowDelete}}
+                <div>
+                    <a href="/users/{{id}}/edit">Edit</a> |
+                    <a href="/users/{{id}}/delete">Delete</a>
+                </div>
+            {{/allowDelete}}
+        {{/user}}
+        {{#errorMessage}}
+            <div class="error">{{errorMessage}}</div>
+        {{/errorMessage}}
+        {{>footer}}
+    </body>
+</html>

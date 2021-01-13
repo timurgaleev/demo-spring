@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>User List</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    </head>
+    <body>
+        <h1>User List</h1>
+
+        <div>
+            <nobr>
+                <a href="/users/add">Add User</a> |
+                <a href="/">Back to Index</a>
+            </nobr>
+        </div>
+        <br/><br/>
+        <div>
+            <table border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                </tr>
+                {{#users}}
+                    <tr>
+                        <td><a href="/users/{{id}}">{{id}}</a></td>
+                        <td><a href="/users/{{id}}">{{name}}</a></td>
+                        <td><a href="/users/{{id}}">{{email}}</a></td>
+                        <td>{{#phone}}{{phone}}{{/phone}}</td>
+                        <td>{{#address}}{{address}}{{/address}}</td>
+                        <td><a href="/users/{{id}}/edit">Edit</a></td>
+                    </tr>
+                {{/users}}
+            </table>
+        </div>
+        <br/><br/>
+        <div>
+            <nobr>
+                {{#hasPrev}}<a href="/users?page={{prev}}">Prev</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a href="/users?page={{next}}">Next</a>{{/hasNext}}
+            </nobr>
+        </div>
+        {{>footer}}
+    </body>
+</html>
