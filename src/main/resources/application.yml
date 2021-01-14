@@ -13,6 +13,10 @@ spring:
       ddl-auto: create
       # dialect: org.hibernate.dialect.MySQLDialect
       dialect: org.hibernate.dialect.PostgreSQLDialect
+      # naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      jdbc:
+        lob:
+          non_contextual_creation: true
   datasource:
     url: jdbc:postgresql://${DATABASE_ADDRESS:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:postgres}
     username: ${DATABASE_USERNAME:postgres}
@@ -24,9 +28,9 @@ spring:
       max-lifetime: 1800000
       maximum-pool-size: 10
 
-msg.title=Spring Boot + Mustache
-
 message: ${MESSAGE:Refreshed}
+
+msg.title: "Timzu Demo Spring"
 
 version: ${VERSION:v0.0.0}
 

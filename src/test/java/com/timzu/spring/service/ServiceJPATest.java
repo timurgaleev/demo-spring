@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserServiceJPATest {
+public class ServiceJPATest {
 
     @Autowired
     private DataSource dataSource;
@@ -31,7 +31,7 @@ public class UserServiceJPATest {
         try (Connection conn = dataSource.getConnection()) {
             String sql = "delete from users where email not like ?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, "%@cappucino.com");
+            ps.setString(1, "%@example.com");
             ps.executeUpdate();
         }
     }
@@ -51,8 +51,8 @@ public class UserServiceJPATest {
     @Test
     public void testSaveUpdateDeleteUser() throws Exception{
         User u = new User();
-        u.setName("Charlize Theron");
-        u.setEmail("charlize@mocha.com");
+        u.setName("Timur Galeev");
+        u.setEmail("galeev@timzu.com");
 
         userService.save(u);
         assertNotNull(u.getId());
@@ -62,7 +62,7 @@ public class UserServiceJPATest {
         assertEquals(u.getEmail(), findUser.getEmail());
 
         // update record
-        u.setEmail("charlize@latte.net");
+        u.setEmail("galeev@timzu.com");
         userService.update(u);
 
         // test after update

@@ -1,20 +1,24 @@
+.hello-title {
+  color: darkgreen;
+}
+
 h1, h2 {
-  color:#ff4f57;
+    color:#35727c;
 }
 
 a {
-  color: #ff4f57;
+    color: #35727c;
 }
 
 table {
-  border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 table th, table td {
-  padding: 5px;
+    padding: 5px;
 }
 
 .error {
-  color: red;
-  font-weight: bold;
+    color: red;
+    font-weight: bold;
 }
