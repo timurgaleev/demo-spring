@@ -7,7 +7,7 @@
 [![DockerHub Badge](http://dockeri.co/image/timurgaleev/demo-spring)](https://hub.docker.com/r/timurgaleev/demo-spring)
 
 
-## Pull image from the command linedocker pull docker.pkg.github.com/timurgaleev/demo-spring/demo-spring:v1.4.3
+## Pull image from the command linedocker pull
 
 ```bash
 docker pull docker.pkg.github.com/timurgaleev/demo-spring/demo-spring:v1.4.3
