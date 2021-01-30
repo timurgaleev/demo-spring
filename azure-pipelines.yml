@@ -25,7 +25,7 @@ stages:
         # targetType: 'inline'
         script: '$(Build.SourcesDirectory)/build.sh'  
       tags: |
-          $(tag                                                                                                           ✘ INT  07:03:18 PM
+          $(tag)                                                                                                           ✘ INT  07:03:18 PM
     - task: Docker@2
       displayName: Build an image
       inputs:
