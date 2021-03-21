@@ -4,7 +4,7 @@
 
 [![CircleCI](https://circleci.com/gh/timurgaleev/demo-spring.svg?style=svg)](https://circleci.com/gh/timurgaleev/demo-spring)
 
-[![Build Status](https://dev.azure.com/timurgaleev/timur_galeev/_apis/build/status/timurgaleev.demo-spring?branchName=refs%2Fpull%2F12%2Fmerge)](https://dev.azure.com/timurgaleev/timur_galeev/_build/latest?definitionId=1&branchName=refs%2Fpull%2F12%2Fmerge)
+[![Build Status](https://dev.azure.com/timurgaleev/timur_galeev/_apis/build/status/timurgaleev.demo-spring?branchName=master)](https://dev.azure.com/timurgaleev/timur_galeev/_build/latest?definitionId=1&branchName=master)
 
 [![DockerHub Badge](http://dockeri.co/image/timurgaleev/demo-spring)](https://hub.docker.com/r/timurgaleev/demo-spring)
 
